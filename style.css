@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #f5f1e8;
+  background: #11120f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --lime: #d8f078;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button { font: inherit; }
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px clamp(22px, 5vw, 72px);
+  background:
+    radial-gradient(ellipse at 50% 43%, rgba(88, 100, 54, .18), transparent 38%),
+    #11120f;
+}
+
+h1 {
+  font: 500 clamp(38px, 6.4vw, 72px)/1.06 "Playfair Display", Georgia, serif;
+  letter-spacing: -.045em;
+  max-width: 750px;
+  margin: 0 0 40px;
+}
+
+.flip-card {
+  border: 0; padding: 0; background: transparent; width: min(280px, 75vw); height: 210px;
+  cursor: pointer; perspective: 1000px; -webkit-tap-highlight-color: transparent;
+}
+.card-inner {
+  position: relative; display: block; width: 100%; height: 100%;
+  transform-style: preserve-3d; transition: transform .75s cubic-bezier(.2,.8,.2,1);
+}
+.flip-card.is-flipped .card-inner { transform: rotateY(180deg); }
+.card-face {
+  position: absolute; inset: 0; border-radius: 5px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+.card-front {
+  color: #17190f; background: var(--lime);
+  box-shadow: 0 20px 60px rgba(0,0,0,.28);
+}
+.card-front::before, .card-back::before {
+  content: ""; position: absolute; inset: 10px; border: 1px solid rgba(23,25,15,.2); pointer-events: none;
+}
+.card-icon {
+  display: grid; place-items: center; width: 62px; height: 62px; border: 1px solid rgba(23,25,15,.48);
+  border-radius: 50%; font: italic 38px "Playfair Display", serif; margin-bottom: 16px;
+  transition: transform .25s ease;
+}
+.flip-card:hover .card-icon { transform: rotate(12deg) scale(1.06); }
+.card-prompt, .back-label { font: 500 9px "DM Mono", monospace; letter-spacing: .2em; }
+.sparkle { position: absolute; font-size: 24px; }
+.sparkle-one { top: 24px; left: 29px; }
+.sparkle-two { bottom: 22px; right: 28px; font-size: 30px; }
+.card-back {
+  transform: rotateY(180deg); color: #f5f1e8; background: #292c22;
+  border: 1px solid rgba(216,240,120,.6); padding: 30px 22px;
+}
+.card-back::before { border-color: rgba(216,240,120,.22); }
+.back-label { color: var(--lime); margin-bottom: 17px; }
+.message { font: italic 500 21px/1.35 "Playfair Display", Georgia, serif; }
+.back-small { color: #aaa99f; font: 10px "DM Mono", monospace; margin-top: 14px; }
+
+button:focus-visible { outline: 2px solid #fff; outline-offset: 6px; border-radius: 4px; }
+@media (max-height: 700px) {
+  .flip-card { height: 180px; }
+  h1 { font-size: clamp(34px, 5vw, 56px); margin-bottom: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
