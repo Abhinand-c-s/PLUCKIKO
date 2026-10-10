@@ -7,7 +7,7 @@ function App() {
 
   return (
     <main className="page">
-      <h1>{revealed ? "Thorak kunne."}</h1>
+      <h1>{revealed && "Thorak kunne."}</h1>
 
       <button
         className={`flip-card ${revealed ? "is-flipped" : ""}`}
