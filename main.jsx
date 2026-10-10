@@ -14,12 +14,11 @@ function App() {
       </nav>
 
       <section className="content">
-        <p className="eyebrow">{revealed ? "JUST FOR YOU" : "THERE'S SOMETHING HERE"}</p>
-        <h1>{revealed ? "Well, hello there." : "Curiosity looks good on you."}</h1>
+        <p className="eyebrow">{revealed ? "open ts now!"}</p>
+        <h1>{revealed ? "OMBILE vitto"}</h1>
         <p className="subtitle">
           {revealed
-            ? "Some things are better when you take a chance and open them."
-            : "Go on. Press the button. You know you want to."}
+            ? "-_-."}
         </p>
 
         <button
@@ -46,14 +45,9 @@ function App() {
         <button className="text-button" onClick={() => setRevealed((value) => !value)}>
           {revealed ? "Close the note ↺" : "Open the note ↗"}
         </button>
-        <p className="hint">{revealed ? "Psst… you can flip it back." : "A tiny moment of magic, one click away."}</p>
+        <p className="hint">{revealed ? "Psst… you can flip it back."}</p>
       </section>
 
-      <footer>
-        <span>MADE FOR THE MOMENT</span>
-        <span className="footer-dot">●</span>
-        <span>TAKE YOUR TIME</span>
-      </footer>
     </main>
   );
 }
