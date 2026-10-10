@@ -25,7 +25,7 @@ function App() {
           <span className="card-face card-back">
             <span className="back-label">A NOTE FOR YOU</span>
             <span className="message">OMBIKKO<br />-With hate abhi. ✨</span>
-            <span className="back-small">— a little reminder</span>
+            <span className="back-small">— hahahhahhaha</span>
           </span>
         </span>
       </button>
